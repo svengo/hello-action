@@ -59,14 +59,12 @@ jobs:
     - 
       name: Generate job summary
       id: job-summary
-      env:
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
       run: |
         {
           echo "### Workflow variables"
           echo "| Variable   | Value       |"
           echo "| ---------- | ----------- |"
-          echo "| tags  | $tags  |"
-          echo "| labels | $labels |"
+          echo "| DOCKER_METADATA_OUTPUT_VERSION | $DOCKER_METADATA_OUTPUT_VERSION |"
+          echo "| DOCKER_METADATA_OUTPUT_TAGS  | $DOCKER_METADATA_OUTPUT_TAGS  |"
+          echo "| DOCKER_METADATA_OUTPUT_LABELS | $DOCKER_METADATA_OUTPUT_LABELS |"
         } >> $GITHUB_STEP_SUMMARY        
