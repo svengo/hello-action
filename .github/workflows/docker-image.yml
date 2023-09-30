@@ -67,4 +67,9 @@ jobs:
           echo "| DOCKER_METADATA_OUTPUT_VERSION | $DOCKER_METADATA_OUTPUT_VERSION |"
           echo "| DOCKER_METADATA_OUTPUT_TAGS  | $DOCKER_METADATA_OUTPUT_TAGS  |"
           echo "| DOCKER_METADATA_OUTPUT_LABELS | $DOCKER_METADATA_OUTPUT_LABELS |"
-        } >> $GITHUB_STEP_SUMMARY        
+          echo ""
+          echo "##### DOCKER_METADATA_OUTPUT_TAGS"
+          for LINE in $DOCKER_METADATA_OUTPUT_TAGS; do echo "* ${LINE}"; done
+          echo "#### DOCKER_METADATA_OUTPUT_LABELS"
+          for LINE in $DOCKER_METADATA_OUTPUT_LABELS; do echo "* ${LINE}"; done
+        } >> $GITHUB_STEP_SUMMARY
