@@ -56,4 +56,14 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        
+    - 
+      name: Generate job summary
+      id: job-summary
+      run: |
+        {
+          echo "### Workflow variables"
+          echo "| Variable   | Value       |"
+          echo "| ---------- | ----------- |"
+          echo "| steps.meta.outputs.tags  | $steps.meta.outputs.tags  |"
+          echo "| steps.meta.outputs.tags | $steps.meta.outputs.tags |"
+        } >> $GITHUB_STEP_SUMMARY        
