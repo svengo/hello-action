@@ -64,9 +64,9 @@ jobs:
           IFS=$'\n'
           echo "### Docker metadata"
           echo "#### Docker Labels"
-          echo "```"
-          echo ${DOCKER_METADATA_OUTPUT_LABELS}
-          echo "```"
+          echo '```'
+          echo $DOCKER_METADATA_OUTPUT_LABELS
+          echo '```'
           echo "#### Docker tags"
-          for LINE in ${DOCKER_METADATA_OUTPUT_TAGS}; do echo "* `${LINE}`"; done
+          for LINE in ${DOCKER_METADATA_OUTPUT_TAGS}; do echo '* `${LINE}`'; done
         } >> $GITHUB_STEP_SUMMARY
