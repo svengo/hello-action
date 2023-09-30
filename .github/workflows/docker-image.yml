@@ -62,15 +62,9 @@ jobs:
       run: |
         {
           IFS=$'\n'
-          echo "### Workflow variables"
-          echo "| Variable   | Value       |"
-          echo "| ---------- | ----------- |"
-          echo "| DOCKER_METADATA_OUTPUT_VERSION | $DOCKER_METADATA_OUTPUT_VERSION |"
-          echo "| DOCKER_METADATA_OUTPUT_TAGS  | $DOCKER_METADATA_OUTPUT_TAGS  |"
-          echo "| DOCKER_METADATA_OUTPUT_LABELS | $DOCKER_METADATA_OUTPUT_LABELS |"
-          echo ""
-          echo "##### DOCKER_METADATA_OUTPUT_TAGS"
+          echo "### Docker Meta Data"
+          echo "#### Docker Tags"
           for LINE in ${DOCKER_METADATA_OUTPUT_TAGS}; do echo "* ${LINE}"; done
-          echo "#### DOCKER_METADATA_OUTPUT_LABELS"
+          echo "#### Docker Labels"
           for LINE in ${DOCKER_METADATA_OUTPUT_LABELS}; do echo "* ${LINE}"; done
         } >> $GITHUB_STEP_SUMMARY
