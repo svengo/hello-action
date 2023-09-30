@@ -61,6 +61,7 @@ jobs:
       id: job-summary
       run: |
         {
+          IFS=$'\n'
           echo "### Workflow variables"
           echo "| Variable   | Value       |"
           echo "| ---------- | ----------- |"
