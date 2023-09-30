@@ -9,21 +9,24 @@ on:
 
 jobs:
   docker:
-  - 
-    id: env-setup
-    run: |
-      {
-        "env_token=production"
-        "env_domain=example.com"
-      } >> $GITHUB_OUTPUT
-  
-      {
-        echo "### Workflow variables"
-        echo "| Variable   | Value       |"
-        echo "| ---------- | ----------- |"
-        echo "| env_token  | $env_token  |"
-        echo "| env_domain | $env_domain |"
-      } >> $GITHUB_STEP_SUMMARY
-  - run: |
-      echo "${{ steps.env-setup.outputs.env_token }}"
-      echo "${{ steps.env-setup.outputs.env_domain }}"
+    runs-on: ubuntu-latest
+    steps:
+    - 
+      name: env-setup
+      id: env-setup
+      run: |
+        {
+          "env_token=production"
+          "env_domain=example.com"
+        } >> $GITHUB_OUTPUT
+    
+        {
+          echo "### Workflow variables"
+          echo "| Variable   | Value       |"
+          echo "| ---------- | ----------- |"
+          echo "| env_token  | $env_token  |"
+          echo "| env_domain | $env_domain |"
+        } >> $GITHUB_STEP_SUMMARY
+    - run: |
+        echo "${{ steps.env-setup.outputs.env_token }}"
+        echo "${{ steps.env-setup.outputs.env_domain }}"
